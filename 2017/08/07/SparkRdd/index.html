@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Fei">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  <title>
+    
+      Spark数据集RDD介绍 | BigData
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>BigData</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">时间轴</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于我</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">时间轴</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于我</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Spark数据集RDD介绍</h2>
+  <p class="post-date">2017-08-07</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><h1 id="Spark数据集RDD介绍"><a href="#Spark数据集RDD介绍" class="headerlink" title="Spark数据集RDD介绍"></a>Spark数据集RDD介绍</h1><p>RDD（Resilient Distributed Datasets），是一个容错的、并行的数据结构。可以让用户显示地将数据存储到磁盘或者内存中，并且可以及控制数据的分区。<br>RDD的本质上是一个只读的分区集合。一个RDD可以包含多个分区，每个分区就是一个dataset片段。<br>Spark实际上是把一个大的数据集，进行切割成N个小的数据集，并分给多个执行器（执行器数目小于数据集数），每个执行器负责各自的数据块的计算，最终把结果收集到一起。</p>
+<h2 id="RDD的两种操作-转换（transformation）和动作-Action"><a href="#RDD的两种操作-转换（transformation）和动作-Action" class="headerlink" title="RDD的两种操作 转换（transformation）和动作(Action)"></a>RDD的两种操作 转换（transformation）和动作(Action)</h2><h3 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1. 转换并且不会对RDD进行计算，它只是重新定义一个RDD。下面对转换的一些主要操作进行一些分析理解，下面以rdd(1,2,3)为例进行解释：</div><div class="line">  1. Map 对RDD中每一个元素进行一个操作，比如：对map里每个元素进行+1,变成（2，3，4），返回的是每个元素</div><div class="line">  2. flatmap 遍历当前的元素的每个元素，比如：对每一个行的元素进行分割操作,返回的是一个集合</div><div class="line">  3. filter 对rdd里元素进行过滤，比如：rdd.filter(x=&gt;x!=1),返回（2，3）</div><div class="line">  4. mapPartitions,应用于每个分区。返回的是一个（k,集合）的类型</div><div class="line">  5. union，rdd3=rdd1.union(rdd2),返回两个rdd的合并，不进行排重</div><div class="line">  6. groupByKey，对一个（k,v）进行聚合，返回（k,IterableM&lt;V&gt;）</div><div class="line">  7. reduceByKey,对一个（k,v）进行分区，返回（k,IterableM&lt;V&gt;）</div><div class="line">2. 动作，执行到Action的时候，是真正开始计算的时候。</div><div class="line">  1. reduce，对Rdd成员使用func进行reduce操作，接受两个参数，合并后返回一个值。func会并发执行</div><div class="line">  2. collect,将RDD读取到Driver程序。类型是一个数组</div><div class="line">  3. count，返回RDD的成员数量</div><div class="line">  4. foreach，对Rdd成员进行遍历</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line"></div><div class="line">        SparkConf sparkConf=<span class="keyword">new</span> SparkConf().setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"test"</span>);</div><div class="line">        JavaSparkContext jc=<span class="keyword">new</span> JavaSparkContext(sparkConf);</div><div class="line"></div><div class="line">        JavaRDD&lt;String&gt; text=jc.textFile(<span class="string">"/Users/jing/Documents/text.txt"</span>);</div><div class="line"></div><div class="line">        <span class="comment">//map</span></div><div class="line">        JavaRDD&lt;String&gt; lines=text.map(<span class="keyword">new</span> Function&lt;String, String&gt;() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">(String v1)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                System.out.println(<span class="string">"v1 = ["</span> + v1 + <span class="string">"]"</span>);</div><div class="line">                <span class="keyword">return</span> v1;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">//flatmap</span></div><div class="line">        JavaRDD&lt;String&gt; words=text.flatMap(<span class="keyword">new</span> FlatMapFunction&lt;String, String&gt;() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> Iterator&lt;String&gt; <span class="title">call</span><span class="params">(String line)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                System.out.println(<span class="string">"line = ["</span> + line + <span class="string">"]"</span>);</div><div class="line">                <span class="keyword">return</span> Arrays.asList(line.split(<span class="string">" "</span>)).iterator();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//filter</span></div><div class="line">        JavaRDD&lt;String&gt; filter=text.filter(<span class="keyword">new</span> Function&lt;String, Boolean&gt;() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> Boolean <span class="title">call</span><span class="params">(String v1)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                <span class="keyword">return</span> v1 != <span class="string">"1"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//reduce</span></div><div class="line">        words.reduce(<span class="keyword">new</span> Function2&lt;String, String, String&gt;() &#123;</div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">(String v1, String v2)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                <span class="keyword">return</span> v1 + v2;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        words.collect();</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Spark" >
+    <span class="tag-code">Spark</span>
+  </a>
+
+      </div>
+    
+
+    
+      <div id="comments"></div>
+    
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'jingfeigithub.github.io/2017/08/07/SparkRdd/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "jingfeigithub";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        id: "Spark数据集RDD介绍",
+        owner: "jingfeigithub",
+        repo: "jingfeigithub.github.io",
+        oauth: {
+          client_id: "e771d8b2307cf9a86b01",
+          client_secret: "bdb137dae1759e03ec9ef21d55d79cdb0bade381"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | GitHub <a href="https://github.com/jingfeigithub">jingfeigithub</a>
+
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
