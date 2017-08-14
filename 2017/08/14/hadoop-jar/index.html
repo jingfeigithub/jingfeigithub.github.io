@@ -7,7 +7,7 @@
   <meta name="keyword" content="hexo-theme, vuejs">
   <title>
     
-      hadoop_jar | BigData
+      hadoop打包的几种方式 | BigData
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -93,7 +93,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>hadoop_jar</h2>
+  <h2>hadoop打包的几种方式</h2>
   <p class="post-date">2017-08-14</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -101,7 +101,40 @@
 </div>
 <main class="app-body">
   <article class="post-article">
-    <section class="markdown-content"></section>
+    <section class="markdown-content"><h1 id="hadoop打包遇到的问题"><a href="#hadoop打包遇到的问题" class="headerlink" title="hadoop打包遇到的问题"></a>hadoop打包遇到的问题</h1><p>我们在写mapreduce的时候，使用maven打包，最终发现打包大小通常都是几十m。那么此时在想，我只吧自己的相关的打包就行了，引用的第三方的包直接使用集群来动态调入，这样就打包的大小就很小了。<br>那么问题起来了，如何第三方常用的jar包放到哪里？又是怎么放的呢？</p>
+<h2 id="Hadoop打包的引用第三方的jar包的几种方式"><a href="#Hadoop打包的引用第三方的jar包的几种方式" class="headerlink" title="Hadoop打包的引用第三方的jar包的几种方式"></a>Hadoop打包的引用第三方的jar包的几种方式</h2><ol>
+<li>把你所有的jar包都打包到一个包里，生成一个可2运行的包。<ol>
+<li>优点：直接在集群运行即可</li>
+<li>缺点：jar包太大。不易维护</li>
+</ol>
+</li>
+<li>把引用的第三方的jar包放到hadoop的lib目录下，这样每个节点都的上传一次。<ol>
+<li>优点：打包小了，可以在集群直接运行</li>
+<li>缺点：每个节点都的上传jar报，升级等不易维护</li>
+</ol>
+</li>
+<li>把jar包放到一台固定的机器上，使用libjars参数动态加载第三方jar<ol>
+<li>优点：只维护一处jar报即可</li>
+<li>缺点：只能在存放jar机器执行Hadoop jar命令</li>
+</ol>
+</li>
+<li>事先把第三方jar包上传到hdfs上，使用job.addFileToClassPath方法进行注入。<ol>
+<li>优点：便于维护</li>
+<li>缺点：需要在代码添加jar包。</li>
+</ol>
+</li>
+<li>把用到依赖的第三方包打包到lib文件夹，此次任务用不到的可以不添加。</li>
+</ol>
+</section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Hadoop" >
+    <span class="tag-code">Hadoop</span>
+  </a>
+
+      </div>
     
 
     
@@ -156,7 +189,7 @@
     var gitmentConfig = "jingfeigithub";
     if (gitmentConfig != "undefined") {
       var gitment = new Gitment({
-        id: "hadoop_jar",
+        id: "hadoop打包的几种方式",
         owner: "jingfeigithub",
         repo: "jingfeigithub.github.io",
         oauth: {
