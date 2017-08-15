@@ -102,16 +102,16 @@
 <main class="app-body">
   <article class="post-article">
     <section class="markdown-content"><h1 id="Nginx学习整理"><a href="#Nginx学习整理" class="headerlink" title="Nginx学习整理"></a>Nginx学习整理</h1><p>Nginx(“engine x”)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。<br>在高连接并发的情况下，Nginx是Apache服务器不错的替代品。</p>
-<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><ol>
-<li><p>正向代理，我是一个用户,我访问不了某网站,但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先连上代理服务器,告诉他我需要那个无法访问网站的内容，代理服务器去取回来,然后返回给我。</p>
-<p>正向代理 是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。<strong>客户端必须要进行一些特别的设置才能使用正向代理</strong>。</p>
-</li>
-<li><p>反向代理，用户访问 <a href="http://ooxx.me/readme，但ooxx.me上并不存在readme页面，他是偷偷从另外一台服务器上取回来,然后作为自己的内容吐给用户，但用户并不知情。" target="_blank" rel="external">http://ooxx.me/readme，但ooxx.me上并不存在readme页面，他是偷偷从另外一台服务器上取回来,然后作为自己的内容吐给用户，但用户并不知情。</a></p>
+<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>正向代理，我是一个用户,我访问不了某网站,但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先连上代理服务器,告诉他我需要那个无法访问网站的内容，代理服务器去取回来,然后返回给我。</p>
+<p>   正向代理 是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。<strong>客户端必须要进行一些特别的设置才能使用正向代理</strong>。</p>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>反向代理，用户访问 <a href="http://ooxx.me/readme，但ooxx.me上并不存在readme页面，他是偷偷从另外一台服务器上取回来,然后作为自己的内容吐给用户，但用户并不知情。" target="_blank" rel="external">http://ooxx.me/readme，但ooxx.me上并不存在readme页面，他是偷偷从另外一台服务器上取回来,然后作为自己的内容吐给用户，但用户并不知情。</a></p>
 <p>反向代理正好相反，对于客户端而言它就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理 的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端，就像这些内容 原本就是它自己的一样。</p>
-<h2 id="Nginx常用功能"><a href="#Nginx常用功能" class="headerlink" title="Nginx常用功能"></a>Nginx常用功能</h2></li>
+<h2 id="Nginx常用功能"><a href="#Nginx常用功能" class="headerlink" title="Nginx常用功能"></a>Nginx常用功能</h2><ol>
 <li>Http代理，Nginx可以根据不同的正则匹配，采取不同的转发策略。</li>
 <li>负载均衡，Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。</li>
-<li>web缓存，Nginx可以对不同的文件做不同的缓存处理。<h2 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h2></li>
+<li>web缓存，Nginx可以对不同的文件做不同的缓存处理。</li>
+</ol>
+<h2 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h2><ol>
 <li>安装Nginx依赖的模块环境<ol>
 <li>gzip模块需要 zlib 库</li>
 <li>rewrite模块需要 pcre 库</li>
