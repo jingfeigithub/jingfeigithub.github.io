@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="雨霖铃，飞，jingfeigithub" />
+  <meta name="keywords" content="Hadoop," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="万里长城永不倒，只因代码写的好">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签云">
-<meta property="og:url" content="jingfeigithub.github.io/tags/index.html">
+<meta name="description" content="hadoop打包遇到的问题我们在写mapreduce的时候，使用maven打包，最终发现打包大小通常都是几十m。那么此时在想，我只吧自己的相关的打包就行了，引用的第三方的包直接使用集群来动态调入，这样就打包的大小就很小了。那么问题起来了，如何第三方常用的jar包放到哪里？又是怎么放的呢？ Hadoop打包的引用第三方的jar包的几种方式 把你所有的jar包都打包到一个包里，生成一个可2运行的包。">
+<meta name="keywords" content="Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop打包的几种方式">
+<meta property="og:url" content="jingfeigithub.github.io/2017/08/14/hadoop-jar/index.html">
 <meta property="og:site_name" content="雨霖铃">
-<meta property="og:description" content="万里长城永不倒，只因代码写的好">
+<meta property="og:description" content="hadoop打包遇到的问题我们在写mapreduce的时候，使用maven打包，最终发现打包大小通常都是几十m。那么此时在想，我只吧自己的相关的打包就行了，引用的第三方的包直接使用集群来动态调入，这样就打包的大小就很小了。那么问题起来了，如何第三方常用的jar包放到哪里？又是怎么放的呢？ Hadoop打包的引用第三方的jar包的几种方式 把你所有的jar包都打包到一个包里，生成一个可2运行的包。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-08T07:01:48.000Z">
+<meta property="og:updated_time" content="2017-08-14T11:06:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签云">
-<meta name="twitter:description" content="万里长城永不倒，只因代码写的好">
+<meta name="twitter:title" content="hadoop打包的几种方式">
+<meta name="twitter:description" content="hadoop打包遇到的问题我们在写mapreduce的时候，使用maven打包，最终发现打包大小通常都是几十m。那么此时在想，我只吧自己的相关的打包就行了，引用的第三方的包直接使用集群来动态调入，这样就打包的大小就很小了。那么问题起来了，如何第三方常用的jar包放到哪里？又是怎么放的呢？ Hadoop打包的引用第三方的jar包的几种方式 把你所有的jar包都打包到一个包里，生成一个可2运行的包。">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="jingfeigithub.github.io/tags/"/>
+  <link rel="canonical" href="jingfeigithub.github.io/2017/08/14/hadoop-jar/"/>
 
 
 
 
 
-  <title>标签云 | 雨霖铃</title>
+  <title>hadoop打包的几种方式 | 雨霖铃</title>
   
 
 
@@ -240,40 +241,171 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="jingfeigithub.github.io/2017/08/14/hadoop-jar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="游不动">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23162654?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨霖铃">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">标签云</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 3 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Hadoop/" style="font-size: 12px; color: #ccc">Hadoop</a> <a href="/tags/Nginx/" style="font-size: 12px; color: #ccc">Nginx</a> <a href="/tags/Spark/" style="font-size: 12px; color: #ccc">Spark</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">hadoop打包的几种方式</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T15:55:38+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="hadoop打包遇到的问题"><a href="#hadoop打包遇到的问题" class="headerlink" title="hadoop打包遇到的问题"></a>hadoop打包遇到的问题</h1><p>我们在写mapreduce的时候，使用maven打包，最终发现打包大小通常都是几十m。那么此时在想，我只吧自己的相关的打包就行了，引用的第三方的包直接使用集群来动态调入，这样就打包的大小就很小了。<br>那么问题起来了，如何第三方常用的jar包放到哪里？又是怎么放的呢？</p>
+<h2 id="Hadoop打包的引用第三方的jar包的几种方式"><a href="#Hadoop打包的引用第三方的jar包的几种方式" class="headerlink" title="Hadoop打包的引用第三方的jar包的几种方式"></a>Hadoop打包的引用第三方的jar包的几种方式</h2><ol>
+<li>把你所有的jar包都打包到一个包里，生成一个可2运行的包。<ol>
+<li>优点：直接在集群运行即可</li>
+<li>缺点：jar包太大。不易维护</li>
+</ol>
+</li>
+<li>把引用的第三方的jar包放到hadoop的lib目录下，这样每个节点都的上传一次。<ol>
+<li>优点：打包小了，可以在集群直接运行</li>
+<li>缺点：每个节点都的上传jar报，升级等不易维护</li>
+</ol>
+</li>
+<li>把jar包放到一台固定的机器上，使用libjars参数动态加载第三方jar<ol>
+<li>优点：只维护一处jar报即可</li>
+<li>缺点：只能在存放jar机器执行Hadoop jar命令</li>
+</ol>
+</li>
+<li>事先把第三方jar包上传到hdfs上，使用job.addFileToClassPath方法进行注入。<ol>
+<li>优点：便于维护</li>
+<li>缺点：需要在代码添加jar包。</li>
+</ol>
+</li>
+<li>把用到依赖的第三方包打包到lib文件夹，此次任务用不到的可以不添加。</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/07/SparkRdd/" rel="next" title="Spark数据结构RDD介绍">
+                <i class="fa fa-chevron-left"></i> Spark数据结构RDD介绍
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/15/Nginx/" rel="prev" title="Nginx学习整理">
+                Nginx学习整理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -282,6 +414,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -302,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -374,6 +519,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hadoop打包遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">hadoop打包遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop打包的引用第三方的jar包的几种方式"><span class="nav-number">1.1.</span> <span class="nav-text">Hadoop打包的引用第三方的jar包的几种方式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

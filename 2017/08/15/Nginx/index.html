@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Nginx," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Nginx学习整理Nginx(“engine x”)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。在高连接并发的情况下，Nginx是Apache服务器不错的替代品。 正向代理正向代理，我是一个用户,我访问不了某网站,但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先">
+<meta name="keywords" content="Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx学习整理">
+<meta property="og:url" content="jingfeigithub.github.io/2017/08/15/Nginx/index.html">
+<meta property="og:site_name" content="雨霖铃">
+<meta property="og:description" content="Nginx学习整理Nginx(“engine x”)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。在高连接并发的情况下，Nginx是Apache服务器不错的替代品。 正向代理正向代理，我是一个用户,我访问不了某网站,但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-08T07:27:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nginx学习整理">
+<meta name="twitter:description" content="Nginx学习整理Nginx(“engine x”)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。在高连接并发的情况下，Nginx是Apache服务器不错的替代品。 正向代理正向代理，我是一个用户,我访问不了某网站,但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="jingfeigithub.github.io/2017/08/15/Nginx/"/>
+
+
+
+
+
+  <title>Nginx学习整理 | 雨霖铃</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雨霖铃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="jingfeigithub.github.io/2017/08/15/Nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="游不动">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/23162654?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雨霖铃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Nginx学习整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T09:38:43+08:00">
+                2017-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Nginx学习整理"><a href="#Nginx学习整理" class="headerlink" title="Nginx学习整理"></a>Nginx学习整理</h1><p>Nginx(“engine x”)是一款是由俄罗斯的程序设计师Igor Sysoev所开发高性能的 Web和 反向代理 服务器，也是一个 IMAP/POP3/SMTP 代理服务器。<br>在高连接并发的情况下，Nginx是Apache服务器不错的替代品。</p>
+<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>正向代理，我是一个用户,我访问不了某网站,但是我能访问一个代理服务器，这个代理服务器呢,他能访问那个我不能访问的网站，于是我先连上代理服务器,告诉他我需要那个无法访问网站的内容，代理服务器去取回来,然后返回给我。</p>
+<p>   正向代理 是一个位于客户端和原始服务器(origin server)之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并指定目标(原始服务器)，然后代理向原始服务器转交请求并将获得的内容返回给客户端。<strong>客户端必须要进行一些特别的设置才能使用正向代理</strong>。</p>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>反向代理，用户访问 <a href="http://ooxx.me/readme，但ooxx.me上并不存在readme页面，他是偷偷从另外一台服务器上取回来,然后作为自己的内容吐给用户，但用户并不知情。" target="_blank" rel="external">http://ooxx.me/readme，但ooxx.me上并不存在readme页面，他是偷偷从另外一台服务器上取回来,然后作为自己的内容吐给用户，但用户并不知情。</a></p>
+<p>反向代理正好相反，对于客户端而言它就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理 的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端，就像这些内容 原本就是它自己的一样。<br><a id="more"></a></p>
+<h2 id="Nginx常用功能"><a href="#Nginx常用功能" class="headerlink" title="Nginx常用功能"></a>Nginx常用功能</h2><ol>
+<li>Http代理，Nginx可以根据不同的正则匹配，采取不同的转发策略。</li>
+<li>负载均衡，Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。</li>
+<li>web缓存，Nginx可以对不同的文件做不同的缓存处理。</li>
+</ol>
+<h2 id="Nginx安装"><a href="#Nginx安装" class="headerlink" title="Nginx安装"></a>Nginx安装</h2><ol>
+<li>安装Nginx依赖的模块环境<ol>
+<li>gzip模块需要 zlib 库</li>
+<li>rewrite模块需要 pcre 库</li>
+<li>ssl 功能需要openssl库</li>
+<li>yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel</li>
+</ol>
+</li>
+<li>下载Nginx安装包，地址<a href="http://nginx.org/en/download.html" target="_blank" rel="external">http://nginx.org/en/download.html</a><ol>
+<li>nginx-1.13.4.tar.gz，解压安装包</li>
+<li>进入解压缩目录，./configure –prefix=/usr/local/webserver/nginx</li>
+<li>make &amp; make install</li>
+</ol>
+</li>
+</ol>
+<h2 id="Nginx配置文件详解"><a href="#Nginx配置文件详解" class="headerlink" title="Nginx配置文件详解"></a>Nginx配置文件详解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line">#运行用户</div><div class="line">user nobody;</div><div class="line">#启动进程,通常设置成和cpu的数量相等</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line">#全局错误日志及PID文件</div><div class="line">#error_log  logs/error.log;</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#pid        logs/nginx.pid;</div><div class="line"></div><div class="line">#工作模式及连接数上限</div><div class="line">events &#123;</div><div class="line">    #epoll是多路复用IO(I/O Multiplexing)中的一种方式,</div><div class="line">    #仅用于linux2.6以上内核,可以大大提高nginx的性能</div><div class="line">    #使用epoll的I/O 模型。linux建议epoll，FreeBSD建议采用kqueue</div><div class="line">    use   epoll;</div><div class="line"></div><div class="line">    #单个后台worker process进程的最大并发链接数</div><div class="line">    worker_connections  1024;</div><div class="line"></div><div class="line">    # 并发总数是 worker_processes 和 worker_connections 的乘积</div><div class="line">    # 即 max_clients = worker_processes * worker_connections</div><div class="line">    # 在设置了反向代理的情况下，max_clients = worker_processes * worker_connections / 4  为什么</div><div class="line">    # 为什么上面反向代理要除以4，应该说是一个经验值</div><div class="line">    # 根据以上条件，正常情况下的Nginx Server可以应付的最大连接数为：4 * 8000 = 32000</div><div class="line">    # worker_connections 值的设置跟物理内存大小有关</div><div class="line">    # 因为并发受IO约束，max_clients的值须小于系统可以打开的最大文件数</div><div class="line">    # 而系统可以打开的最大文件数和内存大小成正比，一般1GB内存的机器上可以打开的文件数大约是10万左右</div><div class="line">    # 我们来看看360M内存的VPS可以打开的文件句柄数是多少：</div><div class="line">    # $ cat /proc/sys/fs/file-max</div><div class="line">    # 输出 34336</div><div class="line">    # 32000 &lt; 34336，即并发连接总数小于系统可以打开的文件句柄总数，这样就在操作系统可以承受的范围之内</div><div class="line">    # 所以，worker_connections 的值需根据 worker_processes 进程数目和系统可以打开的最大文件总数进行适当地进行设置</div><div class="line">    # 使得并发总数小于操作系统可以打开的最大文件数目</div><div class="line">    # 其实质也就是根据主机的物理CPU和内存进行配置</div><div class="line">    # 当然，理论上的并发总数可能会和实际有所偏差，因为主机还有其他的工作进程需要消耗系统资源。</div><div class="line">    # ulimit -SHn 65535</div><div class="line">    &#125;</div><div class="line">http &#123;</div><div class="line">    #设定mime类型,类型由mime.type文件定义</div><div class="line">    include    mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line">    #设定日志格式</div><div class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line">    access_log  logs/access.log  main;</div><div class="line"></div><div class="line">    #sendfile 指令指定 nginx 是否调用 sendfile 函数（zero copy 方式）来输出文件，</div><div class="line">    #对于普通应用，必须设为 on,</div><div class="line">    #如果用来进行下载等应用磁盘IO重负载应用，可设置为 off，</div><div class="line">    #以平衡磁盘与网络I/O处理速度，降低系统的uptime.</div><div class="line">    sendfile     on;</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    #连接超时时间</div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65;</div><div class="line">    tcp_nodelay     on;</div><div class="line"></div><div class="line">    #开启gzip压缩</div><div class="line">    gzip  on;</div><div class="line">    gzip_disable &quot;MSIE [1-6].&quot;;</div><div class="line"></div><div class="line">    #设定请求缓冲</div><div class="line">    client_header_buffer_size    128k;</div><div class="line">    large_client_header_buffers  4128k;</div><div class="line"></div><div class="line"></div><div class="line">    #设定虚拟主机配置</div><div class="line">    server &#123;</div><div class="line">        #侦听80端口</div><div class="line">        listen    80;</div><div class="line">        #定义使用 www.nginx.cn访问</div><div class="line">        server_name  www.nginx.cn;</div><div class="line"></div><div class="line">        #定义服务器的默认网站根目录位置</div><div class="line">        root html;</div><div class="line"></div><div class="line">        #设定本虚拟主机的访问日志</div><div class="line">        access_log  logs/nginx.access.log  main;</div><div class="line"></div><div class="line">        #默认请求</div><div class="line">        location / &#123;</div><div class="line"></div><div class="line">            #定义首页索引文件的名称</div><div class="line">            index index.php index.html index.htm;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # 定义错误提示页面</div><div class="line">        error_page   500 502 503 504 /50x.html;</div><div class="line">        location = /50x.html &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #静态文件，nginx自己处理</div><div class="line">        location ~ ^/(images|javascript|js|css|flash|media|static)/ &#123;</div><div class="line"></div><div class="line">            #过期30天，静态文件不怎么更新，过期可以设大一点，</div><div class="line">            #如果频繁更新，则可以设置得小一点。</div><div class="line">            expires 30d;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI默认配置.</div><div class="line">        location ~ .php$ &#123;</div><div class="line">            fastcgi_pass 127.0.0.1:9000;</div><div class="line">            fastcgi_index index.php;</div><div class="line">            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</div><div class="line">            include fastcgi_params;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        #禁止访问 .htxxx 文件</div><div class="line">            location ~ /.ht &#123;</div><div class="line">            deny all;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="负载均衡示例"><a href="#负载均衡示例" class="headerlink" title="负载均衡示例"></a>负载均衡示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">http &#123;</div><div class="line"> upstream 项目名称 &#123;</div><div class="line"> server 127.0.0.1:8000 weight=3;</div><div class="line"> server 127.0.0.1:8001;</div><div class="line"> server 127.0.0.1:8002;</div><div class="line"> server 127.0.0.1:8003;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> server &#123;</div><div class="line"> listen 80;</div><div class="line"> server_name 域名;</div><div class="line"> location / &#123;</div><div class="line"> proxy_pass http://项目名称;</div><div class="line"> &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="推荐一个地址：http-www-nginx-cn-doc-index-html"><a href="#推荐一个地址：http-www-nginx-cn-doc-index-html" class="headerlink" title="推荐一个地址：http://www.nginx.cn/doc/index.html"></a>推荐一个地址：<a href="http://www.nginx.cn/doc/index.html" target="_blank" rel="external">http://www.nginx.cn/doc/index.html</a></h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/14/hadoop-jar/" rel="next" title="hadoop打包的几种方式">
+                <i class="fa fa-chevron-left"></i> hadoop打包的几种方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars1.githubusercontent.com/u/23162654?s=460&v=4"
+                alt="游不动" />
+            
+              <p class="site-author-name" itemprop="name">游不动</p>
+              <p class="site-description motion-element" itemprop="description">万里长城永不倒，只因代码写的好</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jingfeigithub" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:13661015462@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx学习整理"><span class="nav-number">1.</span> <span class="nav-text">Nginx学习整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正向代理"><span class="nav-number">1.1.</span> <span class="nav-text">正向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反向代理"><span class="nav-number">1.2.</span> <span class="nav-text">反向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx常用功能"><span class="nav-number">1.3.</span> <span class="nav-text">Nginx常用功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx安装"><span class="nav-number">1.4.</span> <span class="nav-text">Nginx安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx配置文件详解"><span class="nav-number">1.5.</span> <span class="nav-text">Nginx配置文件详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#负载均衡示例"><span class="nav-number">1.6.</span> <span class="nav-text">负载均衡示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐一个地址：http-www-nginx-cn-doc-index-html"><span class="nav-number">1.7.</span> <span class="nav-text">推荐一个地址：http://www.nginx.cn/doc/index.html</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">游不动</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
