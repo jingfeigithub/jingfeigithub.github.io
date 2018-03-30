@@ -75,18 +75,18 @@
 
 
 
-<meta name="description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12345678910111213141516">
+<meta name="description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12GOPATH=/Users/jing/Do">
 <meta name="keywords" content="Go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go语言基础学习笔记">
-<meta property="og:url" content="jingfeigithub.github.io/2018/03/30/Go语言基础学习笔记/index.html">
+<meta property="og:url" content="jingfeigithub.github.io/2018/03/30/Go基础/index.html">
 <meta property="og:site_name" content="雨霖铃">
-<meta property="og:description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12345678910111213141516">
+<meta property="og:description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12GOPATH=/Users/jing/Do">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T13:52:32.000Z">
+<meta property="og:updated_time" content="2018-03-30T14:29:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言基础学习笔记">
-<meta name="twitter:description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12345678910111213141516">
+<meta name="twitter:description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12GOPATH=/Users/jing/Do">
 
 
 
@@ -116,7 +116,7 @@
 
 
 
-  <link rel="canonical" href="jingfeigithub.github.io/2018/03/30/Go语言基础学习笔记/"/>
+  <link rel="canonical" href="jingfeigithub.github.io/2018/03/30/Go基础/"/>
 
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="jingfeigithub.github.io/2018/03/30/Go语言基础学习笔记/">
+    <link itemprop="mainEntityOfPage" href="jingfeigithub.github.io/2018/03/30/Go基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="八阿哥">
@@ -375,19 +375,27 @@
         <h1 id="Go语言基础学习笔记"><a href="#Go语言基础学习笔记" class="headerlink" title="Go语言基础学习笔记"></a>Go语言基础学习笔记</h1><h2 id="Go环境安装与开放工具选择"><a href="#Go环境安装与开放工具选择" class="headerlink" title="Go环境安装与开放工具选择"></a>Go环境安装与开放工具选择</h2><ol>
 <li>由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站<a href="https://studygolang.com/dl" target="_blank" rel="external">https://studygolang.com/dl</a> 在这里下载自己对于系统的文件（我下载的是1.9.4版本的）</li>
 <li><p>解压下载的文件到你安装的目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf go1.9.4.darwin-amd64.tar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf go1.9.4.darwin-amd64.tar</div></pre></td></tr></table></figure>
 </li>
 <li><p>配置环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    GOPATH=/Users/jing/Documents/soft/go</div><div class="line">    PATH=<span class="variable">$PATH</span>:<span class="variable">$GOPATH</span>/bin</div><div class="line">   ```[Go语言基础学习笔记](media/15223887372519/Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)</div><div class="line">   记得编译一下文件: <span class="built_in">source</span> /etc/bashrc</div><div class="line">   </div><div class="line">4. 打开命令窗口：go version  如果返回对应的go版本，那么恭喜你安装成功了，反之，自行解决吧。</div><div class="line"><span class="comment">### 对于开发工具，有很多  goland、vscode、eclipse、sublime Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下：</span></div><div class="line">有两个必须配置的属性：</div><div class="line">1. GOROOT 配置你安装的Go的路径</div><div class="line">2. GOPATH 该路径是指你开发go项目的工作空间路径，支持添加多个项目路径</div><div class="line"></div><div class="line"><span class="comment">### ---</span></div><div class="line"></div><div class="line"><span class="comment">## Go基础语法</span></div><div class="line"></div><div class="line">* Go的package用法</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GOPATH=/Users/jing/Documents/soft/go</div><div class="line">PATH=$PATH:$GOPATH/bin</div></pre></td></tr></table></figure>
+<p>记得编译一下文件: source /etc/bashrc</p>
 </li>
-<li><p>Go每个文件必须要有包的声明，并且必须在第一行，比如：package main</p>
+<li><p>打开命令窗口：go version  如果返回对应的go版本，那么恭喜你安装成功了，反之，自行解决吧。</p>
 </li>
+</ol>
+<h3 id="对于开发工具，有很多-goland、vscode、eclipse、sublime-Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下："><a href="#对于开发工具，有很多-goland、vscode、eclipse、sublime-Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下：" class="headerlink" title="对于开发工具，有很多  goland、vscode、eclipse、sublime Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下："></a>对于开发工具，有很多  goland、vscode、eclipse、sublime Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下：</h3><p>有两个必须配置的属性：</p>
+<ol>
+<li>GOROOT 配置你安装的Go的路径</li>
+<li>GOPATH 该路径是指你开发go项目的工作空间路径，支持添加多个项目路径</li>
+</ol>
+<h2 id="Go的package用法"><a href="#Go的package用法" class="headerlink" title="Go的package用法"></a>Go的package用法</h2><ol>
+<li>Go每个文件必须要有包的声明，并且必须在第一行，比如：package main</li>
 <li>同一个路径下，只能存在一个package，一个package可以拆成多个源文件</li>
-<li><p>如果要生成Go可执行程序，必须要有main的package包，且必须在该包下有main函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* Go的import用法</div></pre></td></tr></table></figure>
-</li>
-<li><p>import可以导入源文件所依赖的package包</p>
-</li>
+<li>如果要生成Go可执行程序，必须要有main的package包，且必须在该包下有main函数</li>
+</ol>
+<h2 id="Go的import用法"><a href="#Go的import用法" class="headerlink" title="Go的import用法"></a>Go的import用法</h2><ol>
+<li>import可以导入源文件所依赖的package包</li>
 <li>不允许导入源文件没有用到的包，否则编译器会报错（这个是不是比java .net强多了 哈哈）</li>
 <li><p>import的语法主要有两种：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import &quot;package1&quot;</div><div class="line">import &quot;package2&quot;</div><div class="line">...</div></pre></td></tr></table></figure>
@@ -397,19 +405,18 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 别名用户  import 别名 &quot;原始包名&quot;</div><div class="line">2. .的用法   import . &quot;fmt&quot; ,这样的话，在程序调用的时候就不需要fmt前缀了，直接使用fmt里的方法即可。（不推荐这样使用，不同包有相同的方法名就二逼了）</div><div class="line">3. _的用法，import _ &quot;fmt&quot;,_不会导入整个包，因此你无法使用该包里的其他函数，但是必定会执行fmt包里的init方法。该用法一般用在你不需要使用该包，但是你不得不注册该包供外部使用</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">* Go的数据类型</div></pre></td></tr></table></figure>
-<ol>
+<h2 id="Go的数据类型"><a href="#Go的数据类型" class="headerlink" title="Go的数据类型"></a>Go的数据类型</h2><ol>
 <li>整型：unit8(0-255) unit16(0-65536) unit32(0-4294967295) unit64(0-太大了懒得写了) int8(-128-127) int16（-32768-32767） int32 int64（太大了懒得写了） </li>
 <li>浮点型：float32 float64 </li>
 <li>复数类型：complex64 complex128</li>
 <li>布尔类型： bool ==&gt;true or false</li>
 <li>int所占的字节取决于系统位数，32系统位占4个字节，64位系统占8个字节</li>
 <li>字符串类型：Go语言的字符串的字节使用UTF-8编码标识Unicode文本。</li>
-<li>派生类型（先大概了解后续在一一学习）： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1. 指针类型</div><div class="line">2. 数组类型  eg: var array =[] string&#123;&quot;大象&quot;,&quot;大爷&quot;&#125;</div><div class="line">3. 结构体类型</div><div class="line">4. Channel类型</div><div class="line">5. 函数类型</div><div class="line">6. 切片类型</div><div class="line">7. interface类型</div><div class="line">8. Map类型</div></pre></td></tr></table></figure>
+<li><p>派生类型（先大概了解后续在一一学习）：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1. 指针类型</div><div class="line">2. 数组类型  eg: var array =[] string&#123;&quot;大象&quot;,&quot;大爷&quot;&#125;</div><div class="line">3. 结构体类型</div><div class="line">4. Channel类型</div><div class="line">5. 函数类型</div><div class="line">6. 切片类型</div><div class="line">7. interface类型</div><div class="line">8. Map类型</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* Go的变量声明</div></pre></td></tr></table></figure>
-<ol>
+<h2 id="Go的变量声明"><a href="#Go的变量声明" class="headerlink" title="Go的变量声明"></a>Go的变量声明</h2><ol>
 <li>var 变量名称 变量数据类型 = 赋值</li>
 <li>var 变量名称 变量数据类型</li>
 <li>变量名称 = 赋值</li>
@@ -417,89 +424,98 @@
 <li><p>分组声明</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var (</div><div class="line">变量名 变量数据类型</div><div class="line">变量名2 变量数据类型</div><div class="line">)</div></pre></td></tr></table></figure>
 </li>
-<li><p>声明多个变量：var a,b,c int = 1,2,3</p>
+<li><p>声明多个变量,”var a,b,c int = 1,2,3”</p>
 </li>
 <li>全局变量必须使用var关键词，局部变量可以省略</li>
 <li>“<em>“ 下划线这个另类的特殊变量，只要赋值给</em>，表示已经活到头了，over了，被回收了</li>
-<li>Go类型转换格式：变量名称 [:]= 目标数据类型 (需要转换的变量)</li>
-<li>切记：Go中不存在隐式转换，类型转换必须是显示转换<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">重点说明一下go里声明变量数据类型继承最近的变量数据类型</div></pre></td></tr></table></figure>
-</li>
+<li>Go类型转换格式：变量名称 [ : ]= 目标数据类型 (需要转换的变量)</li>
+<li>切记：Go中不存在隐式转换，类型转换必须是显示转换</li>
 </ol>
-<p>var a,b int = 1,2<br>此时 a,b都为int类型<br>var a,b int string = 1,”2”  <em>这样写是绝对不支持的</em><br>var (<br>        a int<br>        b string<br>    )<br>or<br>var a,b = 1,”222”<br><em>咦，这样就对了嘛</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* Go的变量作用域</div></pre></td></tr></table></figure></p>
-<ol>
+<h3 id="重点说明一下go里声明变量数据类型继承最近的变量数据类型"><a href="#重点说明一下go里声明变量数据类型继承最近的变量数据类型" class="headerlink" title="重点说明一下go里声明变量数据类型继承最近的变量数据类型"></a>重点说明一下go里声明变量数据类型继承最近的变量数据类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var a,b int = 1,2</div><div class="line">此时 a,b都为int类型</div><div class="line">var a,b int string = 1,&quot;2&quot;  _这样写是绝对不支持的_</div><div class="line">var (</div><div class="line">        a int</div><div class="line">        b string</div><div class="line">    )</div><div class="line">or</div><div class="line">var a,b = 1,&quot;222&quot;</div><div class="line">*咦，这样就对了嘛*</div></pre></td></tr></table></figure>
+<h2 id="Go的变量作用域"><a href="#Go的变量作用域" class="headerlink" title="Go的变量作用域"></a>Go的变量作用域</h2><ol>
 <li>在函数体内声明的变量称为局部变量，并且只在函数体内有效</li>
-<li><p>全局变量，定义在函数外的变量，且必须使用var关键字。全局变量在该包名下所有位置有效。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* Go的常量声明</div></pre></td></tr></table></figure>
-</li>
-<li><p>显示声明：const 变量名称 变量数据类 = 赋值</p>
-</li>
+<li>全局变量，定义在函数外的变量，且必须使用var关键字。全局变量在该包名下所有位置有效。</li>
+</ol>
+<h2 id="Go的常量声明"><a href="#Go的常量声明" class="headerlink" title="Go的常量声明"></a>Go的常量声明</h2><ol>
+<li>显示声明：const 变量名称 变量数据类 = 赋值</li>
 <li>隐式声明：const 变量名称 = 赋值</li>
 <li>常量定义可以使用内置表达式定义，比如 len() ,unsafe.SizeOf()等等，<em>但是呢，是不支持自己写的表达式滴</em></li>
 <li>常量目前支持布尔类型、数字类型、字符串类型</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">```</div><div class="line">const name  = &quot;我是常量&quot;</div><div class="line">const name2 int = 2</div><div class="line">分组声明：</div><div class="line">const(</div><div class="line">		name string = &quot;我是常量&quot;</div><div class="line">		name2 int =2</div><div class="line">	)</div><div class="line">const(</div><div class="line">		a = 1</div><div class="line">		b</div><div class="line">		c = 2</div><div class="line">	)</div><div class="line">此时 a=1 b=1 c=2,神奇的事情出现了，*b默认和a等于同一个值*</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>iota</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. iota在你const关键字出现时将被重置为0</div><div class="line">2. const中每新增一行常量声明将使iota计数+1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">const name  = &quot;我是常量&quot;</div><div class="line">const name2 int = 2</div><div class="line">分组声明：</div><div class="line">const(</div><div class="line">        name string = &quot;我是常量&quot;</div><div class="line">        name2 int =2</div><div class="line">    )</div><div class="line">const(</div><div class="line">        a = 1</div><div class="line">        b</div><div class="line">        c = 2</div><div class="line">    )</div><div class="line">此时 a=1 b=1 c=2,神奇的事情出现了，*b默认和a等于同一个值*</div></pre></td></tr></table></figure>
+<h3 id="另类的常量-iota"><a href="#另类的常量-iota" class="headerlink" title="另类的常量  iota"></a>另类的常量  iota</h3><ol>
+<li>iota在你const关键字出现时将被重置为0</li>
+<li>const中每新增一行常量声明将使iota计数+1</li>
+</ol>
+<h2 id="Go的运算符"><a href="#Go的运算符" class="headerlink" title="Go的运算符"></a>Go的运算符</h2><p>这个就不说了，java，.net里的都支持，比如</p>
 <ul>
-<li><p>Go的运算符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这个就不说了，java，.net里的都支持，比如</div><div class="line">+ - * / % += -=等</div><div class="line">||  &amp;&amp; 等</div></pre></td></tr></table></figure>
-</li>
-<li><p>Go的控制语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  var a int = 10</div><div class="line">if a &gt; 11 &#123;</div><div class="line">	fmt.Println(&quot;大于11了&quot;)</div><div class="line">&#125;else &#123;</div><div class="line">	fmt.Println(&quot;小于11了&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><ul>
+<li><ul>
+<li>/ % += -=等<br>||  &amp;&amp; 等</li>
+</ul>
 </li>
 </ul>
-<figure class="highlight plain"><figcaption><span>else if else</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a int = 10</div><div class="line">	if a &gt; 11 &#123;</div><div class="line">		fmt.Println(&quot;大于11了&quot;)</div><div class="line">	&#125;else if a == 11 &#123;</div><div class="line">		fmt.Println(&quot;等于11了&quot;)</div><div class="line">	&#125;else&#123;</div><div class="line">		fmt.Println(&quot;小于11了&quot;)</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> switch a &#123;</div><div class="line">   	case 10: fmt.Println(&quot;等于10了&quot;)</div><div class="line">   	case 11: fmt.Println(&quot;等于11了&quot;)</div><div class="line">   	default:</div><div class="line">   		fmt.Println(&quot;啥都没等于&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> for i:=10;i &lt; 11 ; i++ &#123;</div><div class="line">	fmt.Println(i)</div><div class="line">&#125;</div><div class="line">var array =[] string&#123;&quot;大象&quot;,&quot;大爷&quot;&#125;</div><div class="line">for key,value:=range array&#123;</div><div class="line">	fmt.Println(key)</div><div class="line">	fmt.Println(value)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select &#123;</div><div class="line">case 10: fmt.Println(&quot;等于10啦&quot;)</div><div class="line">default:</div><div class="line">	fmt.Println(&quot;毛都没有&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>Go里的函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">1. 声明格式  func 函数名称 (参数1，参数2，...) 返回类型 &#123; 函数体 &#125;</div><div class="line">    ``` eg</div><div class="line">    嘛都不传，嘛都不返回:</div><div class="line">    func test2()  &#123;</div><div class="line">    	fmt.Println(&quot;test2&quot;)</div><div class="line">    &#125;</div><div class="line">    嘛都不返回:</div><div class="line">    func test3(a,b int) &#123;</div><div class="line">    	fmt.Println(reflect.TypeOf(a))</div><div class="line">    	fmt.Println(reflect.TypeOf(b))</div><div class="line">    &#125;</div><div class="line">    返回一个值：</div><div class="line">    func test2(a string,b int) int &#123;</div><div class="line">    	fmt.Println(a)</div><div class="line">    	fmt.Println(b)</div><div class="line">    	return 0</div><div class="line">    &#125;</div><div class="line">    返回多个值：</div><div class="line">    func test3(a,b int) (int,int)&#123;</div><div class="line">    	fmt.Println(reflect.TypeOf(a))</div><div class="line">    	fmt.Println(reflect.TypeOf(b))</div><div class="line">    	return a,b</div><div class="line">    &#125;</div><div class="line">    以上涉及到有参数传递的都是值传递，下面看看引用传递(不知道值传递和引用传递的可以去问问度娘)</div><div class="line">    引用传递:</div><div class="line">     var a,b = 1,2</div><div class="line">    	fmt.Println(&amp;a)</div><div class="line">    	fmt.Println(&amp;b)</div><div class="line">    	test5(&amp; a,&amp; b)</div><div class="line">    	func test5(a *int,b *int)  &#123;</div><div class="line">        	var c int = 3</div><div class="line">        	a = &amp; c</div><div class="line">        	b = &amp; c</div><div class="line">        	fmt.Println(a)</div><div class="line">        	fmt.Println(b)</div><div class="line">     &#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* Go的数组</div></pre></td></tr></table></figure>
-<ol>
+<h2 id="Go的控制语句"><a href="#Go的控制语句" class="headerlink" title="Go的控制语句"></a>Go的控制语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a int = 10</div><div class="line"> if a &gt; 11 &#123;</div><div class="line">     fmt.Println(&quot;大于11了&quot;)</div><div class="line"> &#125;else &#123;</div><div class="line">     fmt.Println(&quot;小于11了&quot;)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a int = 10</div><div class="line">    if a &gt; 11 &#123;</div><div class="line">        fmt.Println(&quot;大于11了&quot;)</div><div class="line">    &#125;else if a == 11 &#123;</div><div class="line">        fmt.Println(&quot;等于11了&quot;)</div><div class="line">    &#125;else&#123;</div><div class="line">        fmt.Println(&quot;小于11了&quot;)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">switch a &#123;</div><div class="line">      case 10: fmt.Println(&quot;等于10了&quot;)</div><div class="line">      case 11: fmt.Println(&quot;等于11了&quot;)</div><div class="line">      default:</div><div class="line">          fmt.Println(&quot;啥都没等于&quot;)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for i:=10;i &lt; 11 ; i++ &#123;</div><div class="line">      fmt.Println(i)</div><div class="line">  &#125;</div><div class="line">  var array =[] string&#123;&quot;大象&quot;,&quot;大爷&quot;&#125;</div><div class="line">  for key,value:=range array&#123;</div><div class="line">      fmt.Println(key)</div><div class="line">      fmt.Println(value)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select &#123;</div><div class="line">case 10: fmt.Println(&quot;等于10啦&quot;)</div><div class="line">default:</div><div class="line">    fmt.Println(&quot;毛都没有&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Go里的函数"><a href="#Go里的函数" class="headerlink" title="Go里的函数"></a>Go里的函数</h2><ol>
+<li><p>声明格式  func 函数名称 (参数1，参数2，…) 返回类型 { 函数体 }</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">嘛都不传，嘛都不返回:</div><div class="line">func test2()  &#123;</div><div class="line">    fmt.Println(&quot;test2&quot;)</div><div class="line">&#125;</div><div class="line">嘛都不返回:</div><div class="line">func test3(a,b int) &#123;</div><div class="line">    fmt.Println(reflect.TypeOf(a))</div><div class="line">    fmt.Println(reflect.TypeOf(b))</div><div class="line">&#125;</div><div class="line">返回一个值：</div><div class="line">func test2(a string,b int) int &#123;</div><div class="line">    fmt.Println(a)</div><div class="line">    fmt.Println(b)</div><div class="line">    return 0</div><div class="line">&#125;</div><div class="line">返回多个值：</div><div class="line">func test3(a,b int) (int,int)&#123;</div><div class="line">    fmt.Println(reflect.TypeOf(a))</div><div class="line">    fmt.Println(reflect.TypeOf(b))</div><div class="line">    return a,b</div><div class="line">&#125;</div><div class="line">以上涉及到有参数传递的都是值传递，下面看看引用传递(不知道值传递和引用传递的可以去问问度娘)</div><div class="line">引用传递:</div><div class="line"> var a,b = 1,2</div><div class="line">    fmt.Println(&amp;a)</div><div class="line">    fmt.Println(&amp;b)</div><div class="line">    test5(&amp; a,&amp; b)</div><div class="line">    func test5(a *int,b *int)  &#123;</div><div class="line">        var c int = 3</div><div class="line">        a = &amp; c</div><div class="line">        b = &amp; c</div><div class="line">        fmt.Println(a)</div><div class="line">        fmt.Println(b)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Go的数组"><a href="#Go的数组" class="headerlink" title="Go的数组"></a>Go的数组</h2><ol>
 <li>声明方式：var 数组名称  [大小] 数组类型，eg：var array [6] int</li>
 <li>数组初始化：var array [2] int {1,2}</li>
-<li>数组访问：数组名称[下标]，eg: array[1] 得到的就是1<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">``` Go的多维数组</div><div class="line">1. var array [2][3] int &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;</div><div class="line">2. 访问： array[0][1]</div></pre></td></tr></table></figure>
+<li>数组访问：数组名称[下标]，eg: array[1] 得到的就是1</li>
+</ol>
+<h2 id="Go的多维数组"><a href="#Go的多维数组" class="headerlink" title="Go的多维数组"></a>Go的多维数组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var array [2][3] int &#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>访问数组:array[0][1]</li>
+</ol>
+<h2 id="Go里的动态数组-切片（对数组的抽象）"><a href="#Go里的动态数组-切片（对数组的抽象）" class="headerlink" title="Go里的动态数组-切片（对数组的抽象）"></a>Go里的动态数组-切片（对数组的抽象）</h2><ol>
+<li>声明方式: var 变量名称 [] 数据类型（注意这里一定不设置长度，否则就是定长的数组啦）</li>
+<li>使用make方法来创建切片，var 变量名称 [] 数据类型 = make([] 数据类型,长度) eg:var slice1 []int = make([]int,10)</li>
+<li>初始化切片s,是数组arr的引用: var array =[]int {1,2,3}  slice2 := array[0:2]</li>
+<li>获取长度len(),eg: len(slice2)</li>
+<li>获取切片的容量，eg: cap(slice2)</li>
+<li>切片截取：slice2[0:1]</li>
+<li>切片追加新的元素：slice2=append(slice2,1,2)</li>
+<li>切片复制：拷贝 slice1 的内容到 slice2  ==&gt;&gt;&gt;  copy(slice1,slice2)</li>
+</ol>
+<h2 id="Go里的range-range-关键字用于for循环中迭代数组-array-、切片-slice-、通道-channel-或集合-map-的元素"><a href="#Go里的range-range-关键字用于for循环中迭代数组-array-、切片-slice-、通道-channel-或集合-map-的元素" class="headerlink" title="Go里的range(range 关键字用于for循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素)"></a>Go里的range(range 关键字用于for循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//只返回值</div><div class="line"> for _,变量名 := range 数组、map、切片 &#123;</div><div class="line"> </div><div class="line"> &#125;</div><div class="line"> for _,name :=range array  &#123;</div><div class="line">       fmt.Println(name)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//返回索引和值</div><div class="line">for 索引变量,值变量名 := range 数组、map、切片 &#123;</div><div class="line"> </div><div class="line">&#125;</div><div class="line">for index,name :=range array &#123;</div><div class="line">       fmt.Println(index)</div><div class="line">       fmt.Println(name)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//返回索引下标</div><div class="line">  for index :=range array &#123;</div><div class="line">        fmt.Println(index)</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="Go的Map（无序的键值对的集合）"><a href="#Go的Map（无序的键值对的集合）" class="headerlink" title="Go的Map（无序的键值对的集合）"></a>Go的Map（无序的键值对的集合）</h2><ol>
+<li>声明方式：var 变量名称 map[key的数据类型] 元素的数据类型</li>
+<li><p>使用make函数创建：变量名称 := make(map[key的数据类型] 元素的数据类型)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var maptest map[int] string</div><div class="line">  maptest = make(map[int]string)</div><div class="line">  maptest[0] = &quot;尼玛&quot;</div><div class="line">  maptest[1] = &quot;尼玛&quot;</div><div class="line">  fmt.Println(maptest)</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除元素：delete(maptest,”尼玛”)</p>
 </li>
 </ol>
-<ul>
-<li><p>Go里的动态数组-切片（对数组的抽象）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">1. 声明方式: var 变量名称 [] 数据类型（注意这里一定不设置长度，否则就是定长的数组啦）</div><div class="line">2. 使用make方法来创建切片，var 变量名称 [] 数据类型 = make([] 数据类型,长度) eg:var slice1 []int = make([]int,10)</div><div class="line">3. 初始化切片s,是数组arr的引用: var array =[]int &#123;1,2,3&#125;  slice2 := array[0:2]</div><div class="line">4. 获取长度len(),eg: len(slice2)</div><div class="line">5. 获取切片的容量，eg: cap(slice2)</div><div class="line">6. 切片截取：slice2[0:1]</div><div class="line">7. 切片追加新的元素：slice2=append(slice2,1,2)</div><div class="line">8. 切片复制：拷贝 slice1 的内容到 slice2  ==&gt;&gt;&gt;  copy(slice1,slice2)</div></pre></td></tr></table></figure>
+<h2 id="Go的指针（一个指针变量指向了一个值的内存地址）"><a href="#Go的指针（一个指针变量指向了一个值的内存地址）" class="headerlink" title="Go的指针（一个指针变量指向了一个值的内存地址）"></a>Go的指针（一个指针变量指向了一个值的内存地址）</h2><ol>
+<li>Go里在变量前使用&amp;,就可以得到变量的内存地址,*变量名就可以去到地址对应的值</li>
+<li>var 变量名称 *变量数据类型</li>
+<li><p>指针的使用方式如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a int = 10  //声明实际变量</div><div class="line">var zhizhen *int //声明指针变量</div><div class="line">zhizhen = &amp;a     //指针变量赋值，指到实际变量的内存地址</div><div class="line">*zhizhen 就是对于的指针变量的值</div><div class="line">fmt.Print(*zhizhen)  //输出的值为：10</div></pre></td></tr></table></figure>
 </li>
-<li><p>Go里的range(range 关键字用于for循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> for _,变量名 := range 数组、map、切片 &#123;</div><div class="line"> </div><div class="line"> &#125;</div><div class="line"> for _,name :=range array  &#123;</div><div class="line">	fmt.Println(name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>空指针(当一个指针被定义后没有分配到任何实际变量时，它的值为：nil)</p>
 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for 索引变量,值变量名 := range 数组、map、切片 &#123;</div><div class="line"> </div><div class="line">&#125;</div><div class="line">for index,name :=range array &#123;</div><div class="line">	fmt.Println(index)</div><div class="line">	fmt.Println(name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> for index :=range array &#123;</div><div class="line">	fmt.Println(index)</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>Go的Map（无序的键值对的集合）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 声明方式：var 变量名称 map[key的数据类型] 元素的数据类型</div><div class="line">2. 使用make函数创建：变量名称 := make(map[key的数据类型] 元素的数据类型)</div></pre></td></tr></table></figure>
-<pre><code>var maptest map[int] string
-  maptest = make(map[int]string)
-  maptest[0] = &quot;尼玛&quot;
-  maptest[1] = &quot;尼玛&quot;
-  fmt.Println(maptest)
-</code></pre>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">3. 删除元素：delete(maptest,&quot;尼玛&quot;)</div></pre></td></tr></table></figure>
+</ol>
+<h2 id="Go的结构体-由一系列具有相同类型或不同类型的数据构成的数据集合）"><a href="#Go的结构体-由一系列具有相同类型或不同类型的数据构成的数据集合）" class="headerlink" title="Go的结构体(由一系列具有相同类型或不同类型的数据构成的数据集合）"></a>Go的结构体(由一系列具有相同类型或不同类型的数据构成的数据集合）</h2><ol>
+<li>定义结构体： type 结构体名称 struct { 成员 成员类型 …} <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var nima NiMa</div><div class="line">   nima.name = &quot;尼玛&quot;</div><div class="line">   nima.age = 28</div><div class="line">   fmt.Println(nima.name)</div><div class="line">   fmt.Println(nima.age)</div><div class="line">   type NiMa struct &#123;</div><div class="line">       name string</div><div class="line">       age  int</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>Go的指针（一个指针变量指向了一个值的内存地址）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. Go里在变量前使用&amp;,就可以得到变量的内存地址,*变量名就可以去到地址对应的值</div><div class="line">2. var 变量名称 *变量数据类型</div><div class="line">3. 指针的使用方式如下：</div></pre></td></tr></table></figure>
-<p>  var a int = 10  //声明实际变量<br>  var zhizhen <em>int //声明指针变量<br>  zhizhen = &amp;a     //指针变量赋值，指到实际变量的内存地址
-  </em>zhizhen 就是对于的指针变量的值<br>  fmt.Print(*zhizhen)  //输出的值为：10</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 空指针(当一个指针被定义后没有分配到任何实际变量时，它的值为：nil)</div></pre></td></tr></table></figure>
-</li>
-<li><p>Go的结构体(由一系列具有相同类型或不同类型的数据构成的数据集合）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1. 定义结构体： type 结构体名称 struct &#123; 成员 成员类型 ...&#125;</div><div class="line">    ``` eg</div><div class="line">     var nima NiMa</div><div class="line">    	nima.name = &quot;尼玛&quot;</div><div class="line">    	nima.age = 28</div><div class="line">    	fmt.Println(nima.name)</div><div class="line">    	fmt.Println(nima.age)</div><div class="line">    	type NiMa struct &#123;</div><div class="line">        	name string</div><div class="line">        	age  int</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* Go里的接口</div></pre></td></tr></table></figure>
-<ol>
+</ol>
+<h2 id="Go里的接口"><a href="#Go里的接口" class="headerlink" title="Go里的接口"></a>Go里的接口</h2><ol>
 <li><p>接口声明方式</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">type 接口名称 interface&#123;</div><div class="line">  成员名称  返回值类型</div><div class="line">&#125;</div><div class="line">//定义结构体</div><div class="line">type 机构体名称 struct&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//实现接口</div><div class="line">func (结构体类型 变量) 接口方法() [返回值类型]</div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var sb ITest</div><div class="line">sb=new(ImplTest)</div><div class="line">sb.hello()</div><div class="line">type ITest interface &#123;</div><div class="line">   	hello() int</div><div class="line">   </div><div class="line"> &#125;</div><div class="line"> type ImplTest struct &#123;</div><div class="line">   </div><div class="line"> &#125;</div><div class="line">   </div><div class="line"> func (impl ImplTest) hello() int  &#123;</div><div class="line">   	fmt.Println(0)</div><div class="line">   	return 0</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//实例</div><div class="line"> var sb ITest</div><div class="line">    sb=new(ImplTest)</div><div class="line">    sb.hello()</div><div class="line">    type ITest interface &#123;</div><div class="line">        hello() int</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">  type ImplTest struct &#123;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">  func (impl ImplTest) hello() int  &#123;</div><div class="line">        fmt.Println(0)</div><div class="line">        return 0</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>```</p>
 
       
     </div>
@@ -690,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go语言基础学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Go语言基础学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Go环境安装与开放工具选择"><span class="nav-number">1.1.</span> <span class="nav-text">Go环境安装与开放工具选择</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go语言基础学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Go语言基础学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Go环境安装与开放工具选择"><span class="nav-number">1.1.</span> <span class="nav-text">Go环境安装与开放工具选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于开发工具，有很多-goland、vscode、eclipse、sublime-Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下："><span class="nav-number">1.1.1.</span> <span class="nav-text">对于开发工具，有很多  goland、vscode、eclipse、sublime Text等等，我还是比较喜欢jetbrains下的goland，goland的配置如下：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的package用法"><span class="nav-number">1.2.</span> <span class="nav-text">Go的package用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的import用法"><span class="nav-number">1.3.</span> <span class="nav-text">Go的import用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的数据类型"><span class="nav-number">1.4.</span> <span class="nav-text">Go的数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的变量声明"><span class="nav-number">1.5.</span> <span class="nav-text">Go的变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重点说明一下go里声明变量数据类型继承最近的变量数据类型"><span class="nav-number">1.5.1.</span> <span class="nav-text">重点说明一下go里声明变量数据类型继承最近的变量数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的变量作用域"><span class="nav-number">1.6.</span> <span class="nav-text">Go的变量作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的常量声明"><span class="nav-number">1.7.</span> <span class="nav-text">Go的常量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#另类的常量-iota"><span class="nav-number">1.7.1.</span> <span class="nav-text">另类的常量  iota</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的运算符"><span class="nav-number">1.8.</span> <span class="nav-text">Go的运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的控制语句"><span class="nav-number">1.9.</span> <span class="nav-text">Go的控制语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go里的函数"><span class="nav-number">1.10.</span> <span class="nav-text">Go里的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的数组"><span class="nav-number">1.11.</span> <span class="nav-text">Go的数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的多维数组"><span class="nav-number">1.12.</span> <span class="nav-text">Go的多维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go里的动态数组-切片（对数组的抽象）"><span class="nav-number">1.13.</span> <span class="nav-text">Go里的动态数组-切片（对数组的抽象）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go里的range-range-关键字用于for循环中迭代数组-array-、切片-slice-、通道-channel-或集合-map-的元素"><span class="nav-number">1.14.</span> <span class="nav-text">Go里的range(range 关键字用于for循环中迭代数组(array)、切片(slice)、通道(channel)或集合(map)的元素)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的Map（无序的键值对的集合）"><span class="nav-number">1.15.</span> <span class="nav-text">Go的Map（无序的键值对的集合）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的指针（一个指针变量指向了一个值的内存地址）"><span class="nav-number">1.16.</span> <span class="nav-text">Go的指针（一个指针变量指向了一个值的内存地址）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go的结构体-由一系列具有相同类型或不同类型的数据构成的数据集合）"><span class="nav-number">1.17.</span> <span class="nav-text">Go的结构体(由一系列具有相同类型或不同类型的数据构成的数据集合）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go里的接口"><span class="nav-number">1.18.</span> <span class="nav-text">Go里的接口</span></a></li></ol></li></ol></div>
             
 
           </div>
