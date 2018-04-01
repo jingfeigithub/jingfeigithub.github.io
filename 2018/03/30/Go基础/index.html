@@ -83,7 +83,7 @@
 <meta property="og:site_name" content="雨霖铃">
 <meta property="og:description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12GOPATH=/Users/jing/Do">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T14:29:20.000Z">
+<meta property="og:updated_time" content="2018-04-01T11:39:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Go语言基础学习笔记">
 <meta name="twitter:description" content="Go语言基础学习笔记Go环境安装与开放工具选择 由于Go官网被墙，导致没有VPN下打不开，这里推荐一个GO中文社区的网站https://studygolang.com/dl 在这里下载自己对于系统的文件（我下载的是1.9.4版本的） 解压下载的文件到你安装的目录下 1tar -zxvf go1.9.4.darwin-amd64.tar  配置环境变量 12GOPATH=/Users/jing/Do">
@@ -461,7 +461,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a int = 10</div><div class="line">    if a &gt; 11 &#123;</div><div class="line">        fmt.Println(&quot;大于11了&quot;)</div><div class="line">    &#125;else if a == 11 &#123;</div><div class="line">        fmt.Println(&quot;等于11了&quot;)</div><div class="line">    &#125;else&#123;</div><div class="line">        fmt.Println(&quot;小于11了&quot;)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">switch a &#123;</div><div class="line">      case 10: fmt.Println(&quot;等于10了&quot;)</div><div class="line">      case 11: fmt.Println(&quot;等于11了&quot;)</div><div class="line">      default:</div><div class="line">          fmt.Println(&quot;啥都没等于&quot;)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for i:=10;i &lt; 11 ; i++ &#123;</div><div class="line">      fmt.Println(i)</div><div class="line">  &#125;</div><div class="line">  var array =[] string&#123;&quot;大象&quot;,&quot;大爷&quot;&#125;</div><div class="line">  for key,value:=range array&#123;</div><div class="line">      fmt.Println(key)</div><div class="line">      fmt.Println(value)</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select &#123;</div><div class="line">case 10: fmt.Println(&quot;等于10啦&quot;)</div><div class="line">default:</div><div class="line">    fmt.Println(&quot;毛都没有&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">  ch := make(chan string)</div><div class="line">ch2 := make(chan int)</div><div class="line"></div><div class="line">select &#123;</div><div class="line">case msg := &lt;- ch:</div><div class="line">	fmt.Println(&quot;接受到消息&quot;,msg)</div><div class="line">case msg2 := &lt;- ch2:</div><div class="line">	fmt.Println(&quot;ch2 接受到消息&quot;,msg2)</div><div class="line">default:</div><div class="line">	fmt.Println(&quot;啥都木有&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="Go里的函数"><a href="#Go里的函数" class="headerlink" title="Go里的函数"></a>Go里的函数</h2><ol>
 <li><p>声明格式  func 函数名称 (参数1，参数2，…) 返回类型 { 函数体 }</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">嘛都不传，嘛都不返回:</div><div class="line">func test2()  &#123;</div><div class="line">    fmt.Println(&quot;test2&quot;)</div><div class="line">&#125;</div><div class="line">嘛都不返回:</div><div class="line">func test3(a,b int) &#123;</div><div class="line">    fmt.Println(reflect.TypeOf(a))</div><div class="line">    fmt.Println(reflect.TypeOf(b))</div><div class="line">&#125;</div><div class="line">返回一个值：</div><div class="line">func test2(a string,b int) int &#123;</div><div class="line">    fmt.Println(a)</div><div class="line">    fmt.Println(b)</div><div class="line">    return 0</div><div class="line">&#125;</div><div class="line">返回多个值：</div><div class="line">func test3(a,b int) (int,int)&#123;</div><div class="line">    fmt.Println(reflect.TypeOf(a))</div><div class="line">    fmt.Println(reflect.TypeOf(b))</div><div class="line">    return a,b</div><div class="line">&#125;</div><div class="line">以上涉及到有参数传递的都是值传递，下面看看引用传递(不知道值传递和引用传递的可以去问问度娘)</div><div class="line">引用传递:</div><div class="line"> var a,b = 1,2</div><div class="line">    fmt.Println(&amp;a)</div><div class="line">    fmt.Println(&amp;b)</div><div class="line">    test5(&amp; a,&amp; b)</div><div class="line">    func test5(a *int,b *int)  &#123;</div><div class="line">        var c int = 3</div><div class="line">        a = &amp; c</div><div class="line">        b = &amp; c</div><div class="line">        fmt.Println(a)</div><div class="line">        fmt.Println(b)</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
@@ -556,6 +556,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/04/01/Go之异常处理/" rel="prev" title="Go之异常处理">
+                Go之异常处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -635,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
